@@ -17,13 +17,9 @@ green = (0, 255, 0)
 yellow = (255, 255, 102)
 game_over = False
 
-
-
 clock = pygame.time.Clock()
 snake_block = 10
 snake_speed = 10
-
-
 
 font_style = pygame.font.SysFont(None, 30)
 
@@ -34,11 +30,9 @@ def our_snake(snake_block, snake_List):
 	for x in snake_List:
 		pygame.draw.rect(dis, black, [x[0], x[1], snake_block, snake_block])
 
-
 def message(msg, color):
 	mesg = font_style.render(msg, True, color)
 	dis.blit(mesg, [dis_width/2.5, dis_height/2])
-
 
 def game_loop():
 	game_over = False
@@ -55,7 +49,6 @@ def game_loop():
 
 	foodx = round(random.randrange(0, dis_width - snake_block)/10)*10
 	foody = round(random.randrange(0, dis_height - snake_block)/10)*10
-
 
 	while not game_over:
 		while game_close == True:
@@ -112,8 +105,6 @@ def game_loop():
 
 		pygame.display.update()
 
-
-
 		our_snake(snake_block, snake_List)
 		your_score(Length_of_snake-1)
 		pygame.display.update()
@@ -124,9 +115,6 @@ def game_loop():
 			Length_of_snake +=1
 		clock.tick(snake_speed)
 
-	#message("You lost", red)
-	#pygame.display.update()
-	#time.sleep(2)
 	pygame.quit()
 	quit()
 
